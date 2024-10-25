@@ -1,95 +1,66 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+
+import { Icon } from '@/assets/icons/icons';
+import { Button, Flex, Form, Input, Typography } from 'antd';
+
+import React from 'react';
+import { MailOutlined, KeyOutlined } from '@ant-design/icons';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+
+import z from 'zod';
+import { useSignInModel } from '../model/sign-in-screen.model';
+
+const PASSWORD_MIN_LENGTH = 4;
+const PASSWORD_MAX_LENGTH = 16;
+
+export const SignInScreenSchema = z
+  .object({
+    email: z
+      .string({ required_error: 'CPF/CNPJ é obrigatório.' }),
+
+    password: z
+      .string()
+      .min(
+        PASSWORD_MIN_LENGTH,
+        `A senha deve ter no mínimo ${PASSWORD_MIN_LENGTH} caracteres.`,
+      )
+      .max(
+        PASSWORD_MAX_LENGTH,
+        `A senha deve ter no máximo ${PASSWORD_MAX_LENGTH} caracteres.`,
+      )
+
+  })
+  .required();
+
+export type SignInScreenSchemaType = z.infer<typeof SignInScreenSchema>;
+
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  const { handleChangeInputValue, handleSubmit, errors } = useSignInModel()
+
+
+  return (
+    <Flex vertical justify='center' align='center' style={{ height: "100vh", background: "#f0f0f0" }}>
+      <Form onFinish={handleSubmit} layout="vertical" style={{ width: "500px", background: "#fff", padding: "44px", gap: "20px", borderRadius: "12px", display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+          <Icon.BookIcon />
+          <Typography.Title style={{ textAlign: "center", margin: "0px", color: "#000" }} level={2}>Task Manager</Typography.Title>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <Typography.Title style={{ margin: "0px" }} level={2}>Entrar</Typography.Title>
+        <div>
+          <label>Email:</label>
+          <Input prefix={<MailOutlined />} type='email' size='large' onChange={(event) => handleChangeInputValue('email', event.target.value)} />
+        </div>
+        <div>
+          <label>Senha:</label>
+          <Input.Password size='large' iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)} prefix={<KeyOutlined />} type='password' onChange={(event) => handleChangeInputValue('password', event.target.value)} />
+        </div>
+        <Button style={{ background: "#F0D1A8" }} type="primary" htmlType="submit" size='large'>
+          Entrar
+        </Button>
+      </Form>
+    </Flex>
   );
 }
