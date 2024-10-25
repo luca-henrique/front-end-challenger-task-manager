@@ -50,10 +50,7 @@ const actions = {
   createTask: async (task: TaskTitleContent) => {
     const response: AxiosResponse<ApiResponse> = await api.post<ApiResponse>(
       "/task",
-      {
-        ...task,
-        userId: 2,
-      }
+      task
     );
     const newTask: Task = response.data.data;
     store.tasks = [...store.tasks, newTask];

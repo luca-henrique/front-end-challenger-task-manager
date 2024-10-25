@@ -11,7 +11,7 @@ export const Input = ({ label, error, ...props }: CustomInputProps) => {
     <div>
       <label>{label}:</label>
       <DefaultInput {...props} />
-      {error ? <label>Erro Message</label> : null}
+      {error ? <label style={{ color: "red" }}>{error}</label> : null}
     </div>
   )
 }
