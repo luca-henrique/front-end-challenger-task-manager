@@ -1,22 +1,24 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const publicPaths = ["/", "dashboard"];
+const publicPaths = ["/"];
 
-export function middleware(request: NextRequest, response: NextResponse) {
-  // const accessToken = request.cookies.get("accessToken");
-  // const refreshToken = request.cookies.get("refreshToken");
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get("token");
 
-  // console.log(request, response);
+  if (token && publicPaths.includes(request.nextUrl.pathname)) {
+    const dashboardUrl = new URL("/dashboard", request.url);
+    return NextResponse.redirect(dashboardUrl);
+  }
 
-  // if (publicPaths.includes(request.nextUrl.pathname)) {
-  //   return NextResponse.next();
-  // }
+  if (publicPaths.includes(request.nextUrl.pathname)) {
+    return NextResponse.next();
+  }
 
-  // if (!accessToken && !refreshToken) {
-  //   const url = new URL("/dashboard", request.url);
-  //   return NextResponse.redirect(url);
-  // }
+  if (!token) {
+    const url = new URL("/", request.url);
+    return NextResponse.redirect(url);
+  }
 
   return NextResponse.next();
 }

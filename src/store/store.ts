@@ -1,25 +1,8 @@
 import { Task } from "@/types/task";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import { proxy, useSnapshot } from "valtio";
 
-const api = axios.create({
-  baseURL: "http://localhost:3001", // Defina sua URL base
-});
-
-// Interceptor para adicionar o cabeçalho Authorization
-api.interceptors.request.use(
-  (config) => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoie1wiaWRcIjoyLFwiZW1haWxcIjpcImx1Y2FzQGdtYWlsLmNvbVwiLFwicGFzc3dvcmRcIjpcIiQyYiQxMCRPNy5Mb1Z2VExwYUdGZnkzUU1HU2VPWGtDTjVHcWd5SDM0Z2YzREdpWldFTjcydk8yR1NiR1wiLFwiZGF0ZVwiOlwiMjAyNC0xMC0yNFQyMjoxMjozOS43ODJaXCJ9IiwiaWF0IjoxNzI5ODkwOTIxLCJleHAiOjE3Mjk4OTQ1MjF9.iKqWJSQF9WdRutr863Fs4Z2uNLiAs5uCQegTliZydJs";
-    if (token) {
-      config.headers["Authorization"] = `${token}`;
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+import api from "@/libs/http-client";
 
 type TaskTitleContent = Pick<Task, "title" | "content">;
 
