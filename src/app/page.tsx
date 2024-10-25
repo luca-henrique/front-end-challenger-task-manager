@@ -52,10 +52,12 @@ export default function Home() {
         <div>
           <label>Email:</label>
           <Input prefix={<MailOutlined />} type='email' size='large' onChange={(event) => handleChangeInputValue('email', event.target.value)} />
+          <label>Erro Message</label>
         </div>
         <div>
           <label>Senha:</label>
           <Input.Password size='large' iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)} prefix={<KeyOutlined />} type='password' onChange={(event) => handleChangeInputValue('password', event.target.value)} />
+          <label>Erro Message</label>
         </div>
         <Button style={{ background: "#F0D1A8" }} type="primary" htmlType="submit" size='large'>
           Entrar

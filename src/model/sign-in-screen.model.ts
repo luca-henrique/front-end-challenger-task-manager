@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { SignInScreenSchema, SignInScreenSchemaType } from "@/app/page";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export type FieldTypeSignInScreenSchema = keyof SignInScreenSchemaType;
 
