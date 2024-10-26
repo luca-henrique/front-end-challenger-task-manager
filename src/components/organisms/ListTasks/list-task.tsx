@@ -1,7 +1,7 @@
 import { EditTaskForm } from "@/components/molecules/EditTaskForm/task-form";
 import { CardTask } from "@/components/molecules/Task/task";
 import { TaskForm } from "@/components/molecules/TaskForm/task-form";
-import { useTask } from "@/store/store";
+import { useTask } from "@/store/task";
 
 export const ListTask = () => {
 

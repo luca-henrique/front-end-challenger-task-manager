@@ -1,7 +1,7 @@
 import z from "zod";
 
 const CONTENT_MIN_LENGTH = 4;
-const CONTENT_MAX_LENGTH = 16;
+const CONTENT_MAX_LENGTH = 100;
 
 const TITLE_MIN_LENGTH = 4;
 const TITLE_MAX_LENGTH = 16;

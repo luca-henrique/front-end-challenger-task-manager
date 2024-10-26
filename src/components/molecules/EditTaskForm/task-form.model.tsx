@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { FieldTypeTaskFormSchema, TaskFormSchemaType } from './task-form.type';
 import { TaskSchema, TaskSchemaType } from './task-form.schema';
-import { useTask } from '@/store/store';
+import { useTask } from '@/store/task';
 
 export const useTaskForm = () => {
   const { actions: { updateTask }, snapshot: { selecteTask } } = useTask()

@@ -2,7 +2,7 @@ import { formatDate } from "@/utils/formatDate";
 import { Button, Tooltip } from "antd";
 import { FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Task } from "@/types/task";
-import { useTask } from "@/store/store";
+import { useTask } from "@/store/task";
 
 type CardTaskProps = Omit<Task, 'user_id'>;
 
