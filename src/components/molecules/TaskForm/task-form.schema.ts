@@ -7,6 +7,12 @@ import {
   TITLE_MIN_LENGTH,
 } from "@/common/validations";
 
+/*
+
+  - criar arquivos para mensagens de erro 
+  
+*/
+
 export const TaskSchema = z
   .object({
     title: z

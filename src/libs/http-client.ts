@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import nookies from "nookies";
+import { removeCookie } from "./cookies";
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API,
@@ -38,7 +39,7 @@ axiosInstance.interceptors.response.use(
   },
   async (error) => {
     if (error.response && error.response.status === 401) {
-      // tentar renovar o token de acesso
+      removeCookie("token");
     }
     return await Promise.reject(error);
   }

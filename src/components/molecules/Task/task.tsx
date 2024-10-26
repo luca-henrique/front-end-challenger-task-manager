@@ -1,4 +1,4 @@
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from "@/utils/format-date";
 import { Col, Row, Typography } from "antd";
 import { FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import toast from "react-hot-toast";
