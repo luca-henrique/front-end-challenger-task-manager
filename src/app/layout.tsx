@@ -3,7 +3,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import ReactQueryProvider from "@/components/molecules/ReactQueryProvider/react-query-provider";
 import { Toaster } from "react-hot-toast";
 
-
+import "@/styles/global.css"
 
 export const metadata: Metadata = {
   title: "Task Manager",

@@ -9,7 +9,7 @@ export default function Home() {
       vertical
       justify="center"
       align="center"
-      style={{ height: "100vh", background: "#f0f0f0" }}
+      style={{ height: "100vh", background: "#f5f5f5" }}
     >
       <SignInForm />
     </Flex>
