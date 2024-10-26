@@ -1,5 +1,17 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { CardTask } from "./task"
+
+const mockDeleteTask = jest.fn(); // função mock para deleteTask
+const mockSelectTask = jest.fn(); // função mock para selectTask
+
+const taskProps = {
+  id: 1,
+  date: new Date(),
+  content: "Conteúdo da tarefa",
+  title: "Tarefa de Teste",
+  deleteTask: mockDeleteTask,
+  selectTask: mockSelectTask,
+};
 
 describe("CardTask Component", () => {
   test("deve renderizar o título, conteúdo e data corretamente", () => {
@@ -32,14 +44,37 @@ describe("CardTask Component", () => {
       />
     );
 
-    const span = screen.getByRole("span");
+    const deleteSpan = screen.getByTestId("delete-span");
 
-    expect(span).toBeInTheDocument();
+    expect(deleteSpan).toBeInTheDocument();
 
-    // Verifica se o botão Delete está presente
-    expect(span).toHaveAttribute("id", "select");
+  });
 
-    // Verifica se o botão Select está presente
-    expect(span).toHaveAttribute("id", "delete");
+  beforeEach(() => {
+    render(<CardTask {...taskProps} />);
+  });
+
+  test("deve renderizar o título e conteúdo da tarefa", () => {
+    expect(screen.getByText(taskProps.title)).toBeInTheDocument();
+    expect(screen.getByText(taskProps.content)).toBeInTheDocument();
+  });
+
+  test("deve chamar selectTask ao clicar no ícone de selecionar", () => {
+    const selectIcon = screen.getByTestId("select-span");
+    fireEvent.click(selectIcon);
+    expect(mockSelectTask).toHaveBeenCalledWith(taskProps.id); // verifica se a função foi chamada com o id correto
+  });
+
+  test("deve chamar deleteTask ao clicar no ícone de deletar", () => {
+    const deleteIcon = screen.getByTestId("delete-span");
+    fireEvent.click(deleteIcon);
+    expect(mockDeleteTask).toHaveBeenCalledWith(taskProps.id); // verifica se a função foi chamada com o id correto
+  });
+
+  test("deve exibir um toast ao deletar a tarefa", () => {
+    const deleteIcon = screen.getByTestId("delete-span");
+    fireEvent.click(deleteIcon);
+    expect(mockDeleteTask).toHaveBeenCalled(); // verifica se a função de deletar foi chamada
+    // Aqui você pode adicionar uma verificação para o toast, se estiver usando um mock para toast.
   });
 });

@@ -9,3 +9,6 @@
   Autenticação:
 - Após o login, armazenar o token JWT no local storage ou cookies.
   Garantir que o token seja incluído no header de todas as requisições ao backend.
+
+https://www.youtube.com/watch?v=K15kqWCaSMI
+https://www.youtube.com/watch?v=goMsD9X3NLY&t=517s

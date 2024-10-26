@@ -34,8 +34,8 @@ export const CardTask = ({
         <Title level={5} style={{ margin: 0, marginTop: "8px" }}>{formatDate(date)}</Title>
       </Col>
       <Row style={{ gap: "10px", flexDirection: "row", display: "flex", height: "20px" }}>
-        <FormOutlined onClick={() => selectTask(id)} id="select" />
-        <DeleteOutlined onClick={() => handleDeleteTask(id)} id="delete" />
+        <FormOutlined onClick={() => selectTask(id)} data-testid="select-span" />
+        <DeleteOutlined onClick={() => handleDeleteTask(id)} data-testid="delete-span" />
       </Row>
     </Row>
   );
