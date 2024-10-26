@@ -1,3 +1,48 @@
+# Nome do Projeto
+
+Descrição breve do projeto e suas funcionalidades.
+
+## Índice
+
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Configuração do Ambiente](#configuração-do-ambiente)
+- [Executando o Projeto](#executando-o-projeto)
+
+## Pré-requisitos
+
+Antes de começar, verifique se você possui o seguinte instalado em sua máquina:
+
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [npm](https://www.npmjs.com/) (geralmente incluído com o Node.js)
+
+## Instalação
+
+Siga os passos abaixo para instalar o projeto:
+
+1. Clone o repositório:
+
+   ```bash
+    git clone [repositorio](https://github.com/luca-henrique/front-end-challenger-task-manager)
+    cd nome-do-repositorio
+    npm install
+   ```
+
+## Configuração do Ambiente
+
+1.Crie um arquivo .env.development na raiz do projeto.
+2.Adicione a seguinte variável de ambiente:
+
+```bash
+  NEXT_PUBLIC_API=<URL_DA_API>
+```
+
+## Executando o Projeto
+
+```bash
+   npm run dev
+```
+
 ### Frontend:
 
 **1 - Interface:**
@@ -9,9 +54,6 @@
   Autenticação:
 - Após o login, armazenar o token JWT no local storage ou cookies.
   Garantir que o token seja incluído no header de todas as requisições ao backend.
-
-https://www.youtube.com/watch?v=K15kqWCaSMI
-https://www.youtube.com/watch?v=goMsD9X3NLY&t=517s
 
 ## errors
 
