@@ -5,7 +5,6 @@ export const TaskFormView = ({ handleSubmit, handleChangeInputValue, watch, erro
 
   const { title, content } = watch()
 
-
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", marginBottom: "30px", width: "400px", gap: "10px" }}>
       <input value={title} onChange={event => handleChangeInputValue('title', event.target.value)} />
