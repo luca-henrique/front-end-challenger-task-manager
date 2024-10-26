@@ -1,6 +1,8 @@
+
+
 import { render } from "@testing-library/react"
-import { Input } from "./input"
+import { TaskForm } from "./task-form"
 
 test('it render', () => {
-  render(<Input label={""} />)
+  render(<TaskForm />)
 })

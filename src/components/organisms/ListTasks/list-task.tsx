@@ -7,8 +7,6 @@ export const ListTask = () => {
 
   const { snapshot: { tasks, selecteTask } } = useTask()
 
-  console.log(selecteTask.id)
-
   return (
     <>
       {selecteTask.id !== 0 ? <EditTaskForm /> : <TaskForm />}
