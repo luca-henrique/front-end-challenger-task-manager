@@ -12,13 +12,15 @@ const config: Config = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   moduleNameMapper: {
-    // Handle Module Path Aliases
     "^@/(.*)$": "<rootDir>/$1",
   },
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!antd)/", // Processa o 'antd' através do Babel
+  ],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

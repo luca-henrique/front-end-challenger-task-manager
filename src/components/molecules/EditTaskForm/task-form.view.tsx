@@ -1,8 +1,10 @@
+'use client'
+
 import { Button, Form } from "antd";
 import { TaskFormViewProps } from "./task-form.type";
 import { Input } from "@/components/atoms/Input/input";
 import { CONTENT_MAX_LENGTH } from "@/common/validations";
-import { TextAreaInput } from "@/components/atoms/TextArea/input";
+import { TextAreaInput } from "@/components/atoms/TextArea/text-area";
 
 
 

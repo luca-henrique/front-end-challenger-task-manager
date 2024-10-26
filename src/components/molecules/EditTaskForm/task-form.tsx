@@ -1,3 +1,5 @@
+'use client'
+
 import { useTaskForm } from "./task-form.model";
 import { TaskFormView } from "./task-form.view";
 

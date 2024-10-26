@@ -12,3 +12,7 @@
 
 https://www.youtube.com/watch?v=K15kqWCaSMI
 https://www.youtube.com/watch?v=goMsD9X3NLY&t=517s
+
+## errors
+
+https://medium.com/@sildeswj/how-to-resolve-ant-design-antd-errors-in-next-js-with-jest-testing-692afa836ab6

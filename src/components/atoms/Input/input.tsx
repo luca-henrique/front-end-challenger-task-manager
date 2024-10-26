@@ -1,6 +1,6 @@
+'use client'
+
 import { Input as DefaultInput, InputProps } from 'antd';
-
-
 interface CustomInputProps extends InputProps {
   label: string;
   error?: string

@@ -1,4 +1,7 @@
-import TextArea, { TextAreaProps } from "antd/es/input/TextArea";
+'use client'
+
+
+import TextArea, { TextAreaProps } from 'antd/lib/input/TextArea';
 
 interface CustomInputProps extends TextAreaProps {
   label: string;
