@@ -1,7 +1,5 @@
+import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from "@/common/validations";
 import { z } from "zod";
-
-const PASSWORD_MIN_LENGTH = 4;
-const PASSWORD_MAX_LENGTH = 16;
 
 export const SignInScreenSchema = z
   .object({

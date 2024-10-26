@@ -6,6 +6,7 @@ import { FieldTypeTaskFormSchema, TaskFormSchemaType } from './task-form.type';
 import { TaskSchema, TaskSchemaType } from './task-form.schema';
 import { useTask } from '@/store/task';
 import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 export const useTaskForm = () => {
   const { actions: { updateTask, selectTask }, snapshot: { selecteTask } } = useTask()
@@ -33,10 +34,10 @@ export const useTaskForm = () => {
     clearErrors(fieldName);
   };
 
-  console.log(errors)
 
-  function handleEvent(value: TaskSchemaType) {
-    updateTask(value);
+  async function handleEvent(value: TaskSchemaType) {
+    await updateTask(value);
+    toast.success('Task atualizada')
     selectTask(0)
   }
 

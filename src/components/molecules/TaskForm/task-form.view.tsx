@@ -3,14 +3,12 @@ import { TaskFormViewProps } from "./task-form.type";
 import { Input } from "@/components/atoms/Input/input";
 
 import { Input as Custom } from 'antd';
-import { CONTENT_MAX_LENGTH } from "./task-form.schema";
+import { CONTENT_MAX_LENGTH } from "@/common/validations";
 
 const { TextArea } = Custom;
 
 export const TaskFormView = ({ handleSubmit, handleChangeInputValue, watch, errors }: TaskFormViewProps) => {
-
   const { title, content } = watch()
-
 
   return (
     <Form onFinish={handleSubmit} style={{ display: "flex", flexDirection: "column", marginBottom: "30px", width: "400px", gap: "10px" }}>

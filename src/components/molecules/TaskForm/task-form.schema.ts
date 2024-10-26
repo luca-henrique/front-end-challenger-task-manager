@@ -1,10 +1,11 @@
 import z from "zod";
 
-const CONTENT_MIN_LENGTH = 4;
-export const CONTENT_MAX_LENGTH = 100;
-
-const TITLE_MIN_LENGTH = 4;
-const TITLE_MAX_LENGTH = 16;
+import {
+  CONTENT_MAX_LENGTH,
+  CONTENT_MIN_LENGTH,
+  TITLE_MAX_LENGTH,
+  TITLE_MIN_LENGTH,
+} from "@/common/validations";
 
 export const TaskSchema = z
   .object({
