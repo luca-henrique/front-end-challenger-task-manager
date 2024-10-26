@@ -2,15 +2,17 @@ import { BasicTask, Store } from "@/types/task";
 import { proxy, useSnapshot } from "valtio";
 import { taskService } from "@/services/task";
 
+const initialValueSelectedTask = {
+  id: 0,
+  user_id: 0,
+  title: "",
+  content: "",
+  date: new Date(),
+};
+
 const store = proxy<Store>({
   tasks: [],
-  selecteTask: {
-    id: 0,
-    user_id: 0,
-    title: "",
-    content: "",
-    date: new Date(),
-  },
+  selecteTask: initialValueSelectedTask,
   loading: false,
 });
 
@@ -38,7 +40,12 @@ const actions = {
   },
 
   selectTask: async (id: number) => {
-    store.selecteTask = store.tasks.filter((task) => task.id === id)[0];
+    const taskSelected = store.tasks.filter((task) => task.id === id)[0];
+    if (taskSelected === undefined) {
+      store.selecteTask = initialValueSelectedTask;
+    } else {
+      store.selecteTask = store.tasks.filter((task) => task.id === id)[0];
+    }
   },
 };
 

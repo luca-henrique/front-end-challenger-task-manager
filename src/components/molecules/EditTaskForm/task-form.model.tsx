@@ -8,7 +8,7 @@ import { useTask } from '@/store/task';
 import { useEffect } from 'react';
 
 export const useTaskForm = () => {
-  const { actions: { updateTask }, snapshot: { selecteTask } } = useTask()
+  const { actions: { updateTask, selectTask }, snapshot: { selecteTask } } = useTask()
 
   const { setValue, handleSubmit, clearErrors, watch, formState: { errors } } =
     useForm<TaskFormSchemaType>({
@@ -36,8 +36,8 @@ export const useTaskForm = () => {
   console.log(errors)
 
   function handleEvent(value: TaskSchemaType) {
-    console.log(value)
     updateTask(value);
+    selectTask(0)
   }
 
   return {
