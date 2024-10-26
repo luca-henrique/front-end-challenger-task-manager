@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@/assets/icons/icons";
-import { Button, Form, Typography } from "antd";
+import { Button, Form, Row, Typography } from "antd";
 
 import React from "react";
 import { MailOutlined, KeyOutlined } from "@ant-design/icons";
@@ -24,7 +24,7 @@ export const SignInFormView = ({ handleSubmit, errors, handleChangeInputValue }:
         flexDirection: "column",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+      <Row style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
         <Icon.BookIcon />
         <Typography.Title
           style={{ textAlign: "center", margin: "0px", color: "#000" }}
@@ -32,7 +32,7 @@ export const SignInFormView = ({ handleSubmit, errors, handleChangeInputValue }:
         >
           Task Manager
         </Typography.Title>
-      </div>
+      </Row>
 
       <Typography.Title style={{ margin: "0px" }} level={2}>
         Entrar

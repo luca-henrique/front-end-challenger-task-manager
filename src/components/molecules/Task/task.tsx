@@ -28,7 +28,6 @@ export const CardTask = ({
         <Col style={{ height: "48px" }}>
           <Paragraph ellipsis={{
             rows: 2,
-            expandable: 'collapsible',
           }}
             type="secondary" style={{ margin: 0 }}>{content}</Paragraph>
         </Col>
